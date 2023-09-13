@@ -1,2 +1,2 @@
 # Sesac-git
-git push 해보기
+# git push 해보기

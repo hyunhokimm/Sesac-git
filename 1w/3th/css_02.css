@@ -1,0 +1,25 @@
+div span:first-child{
+    color: blue;
+    font-size: 30px;
+}
+
+div span:last-child{
+    color: red;
+    font-size: 20px;
+}
+
+div span:nth-child(3){
+    color: white;
+    background-color: black;
+    font-size: 40px;
+}
+
+div *:not(span){
+    color: red;
+    font-size: 50px;
+}
+
+input[type="password"]{
+    font-size: 20px;
+    background-color: gray;
+}

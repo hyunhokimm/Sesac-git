@@ -1,0 +1,37 @@
+*{
+    color: red;
+}
+p{
+    color: blue;
+    background-color: brown;
+}
+.selector{
+    height: 50px;
+    color: aqua;
+    background-color: blue;
+}
+#id_selector{
+    height: 70px;
+    color: antiquewhite;
+    background-color: black;
+}
+
+div .사과{
+    color: brown;
+    font-size: 40px;
+}
+
+ol > .child{
+    color: blue;
+    font-size: 60px;
+}
+
+h4 + ul{
+    color: purple;
+    font-size: 30px;
+}
+
+h4 ~ ul{
+    color: red;
+    font-size: 50px;
+}

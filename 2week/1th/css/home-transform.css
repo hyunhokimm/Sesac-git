@@ -1,0 +1,37 @@
+.container{
+    width: 500px;
+    height: 200px;
+    background-color: beige;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-color: rgb(184, 91, 91);
+    display: inline-block;
+}
+
+.scale:hover{
+    transform: scale(2);
+    transition:all 2s ;
+} 
+ .skew:hover{
+    transition:all 2s ;
+
+} 
+
+ .rotation:hover{
+   transform: rotate(10deg);
+    transition:all 2s ;
+}
+
+.translation:hover{
+    transform: translate(20px);
+    transition:all 2s ;
+}
+
+span{
+    display: inline-block;
+    width: 50px;
+}

@@ -1,0 +1,32 @@
+.container{
+    border: 1px solid rgb(56, 55, 55);
+    padding: 10px;
+    
+}
+
+
+.head{
+    background-color: rgb(192, 190, 190);
+}
+
+.pink{
+    background-color: rgb(244, 204, 211);
+}
+
+.column{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.in{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 0.1;
+}
+
+.menu{
+    padding-right: 5px;
+}
+

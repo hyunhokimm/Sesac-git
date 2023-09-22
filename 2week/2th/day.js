@@ -21,4 +21,8 @@ function dayCheck(day) {
     }
 }
 
-console.log(dayCheck('토요일'))
+// console.log(dayCheck('토요일'))
+
+
+let today = dayCheck('월요일')
+today === '월요일' ? console.log('월요병 걸림') : console.log('휴~다행이다.')

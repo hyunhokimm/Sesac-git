@@ -14,19 +14,25 @@
 }
 
 .column{
-    padding: 5px;
     display: flex;
     justify-content: space-between;
-    flex-grow: 1;
+    align-items: center;
+    margin: 10px;
 }
 
 .in{
     display: flex;
-    justify-content: space-between;
-    flex-grow: 0.1;
 }
 
-.menu{
+.in > div{
+    margin: 0 5px;
+}
+
+/* .menu{
     padding-right: 5px;
-}
+} */
 
+.center{
+    text-align: center;
+    margin: 10px;
+}

@@ -21,7 +21,7 @@ function dayCheck(day) {
     }
 }
 
-// console.log(dayCheck('토요일'))
+console.log(dayCheck('토요일'))
 
 
 let today = dayCheck('월요일')

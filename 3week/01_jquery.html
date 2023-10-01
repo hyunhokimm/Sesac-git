@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <title>jquery</title>
+  </head>
+  <body>
+    <!-- <input type="text" />
+    <br />
+    <span class="big">사이즈를 크게 해주세요.</span>
+    <button onclick="sizeUp()">크게</button>
+    <br />
+    <span class="tag"> span 태그 입니다.</span>
+    <button onclick="tag()">태그 변경</button>
+    <ol id="list">
+      <li id="1st">1번째</li>
+      <li>2번째</li>
+    </ol> -->
+    <div class="div">
+      컨테이너
+      <ul>
+        책상
+        <li>
+          필통
+          <span style="font-size: 20px">연필</span>
+        </li>
+      </ul>
+    </div>
+    <script>
+      //input에 value 값 미리 넣기
+      $('input').val('input!!!');
+      sizeUp = () => {
+        $(' .big').css('font-size', '40px');
+      };
+      tag = () => {
+        $(' .tag').html('<h1>h1 태그로 변경되었음.</h1>');
+      };
+      $('#list').append('<li>추가된 요소</li>');
+      $('#list').prepend('<h3>하위 요소 추가</h3>');
+      //  $('<span>appendTo.</span>').appendTo('span');
+      //  $('<span>prependTo().</span>').prependTo('span');
+      $('#1st').remove();
+      $('#list').empty();
+
+      //바로 위 부모요소 선택
+      $('span').parent().css({ fontSize: '40px' });
+      //조부모들까지 선택
+      $('span').parents().css({ color: 'red' });
+      $('.div').children().css({ color: 'black' });
+      $('div').find('ul').css({ backgroundColor: 'black' });
+    </script>
+  </body>
+</html>

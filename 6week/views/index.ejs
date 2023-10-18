@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form action="/userCreate" method="post" name="create">
+      <div><span>ID</span><input type="text" name="ID" required /></div>
+      <div>
+        <span>비밀번호</span
+        ><input
+          type="password"
+          name="password"
+          id="password"
+          oninput="oninputPW(this)"
+          required
+          placeholder="소문자,숫자,특수문자를 이용해주세요."
+        />
+      </div>
+      <div>
+        <span>비밀번호 재입력</span
+        ><input
+          type="password"
+          name="passwordRe"
+          oninput="oninputPWre(this)"
+          required
+          placeholder="소문자,숫자,특수문자를 이용해주세요."
+        />
+      </div>
+      <div><span>Email</span><input type="email" name="email" required /></div>
+      <button type="submit">회원 가입</button>
+      <div id="error"></div>
+    </form>
+
+    <script>
+      const error = document.getElementById('error');
+
+      function oninputPWre(target) {
+        const pw = document.getElementById('password').value;
+        console.log(pw);
+        console.log(target.value);
+        if (pw == target.value) {
+          return (error.innerHTML = '확인 되었습니다.');
+        } else {
+          return (error.innerHTML = '비밀번호와 다릅니다.');
+        }
+      }
+
+      function oninputPW(tatget) {
+        const regexPw = /^(?=.*[a-z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
+        if (regexPw.test(tatget.value)) {
+          return (error.innerHTML = '');
+        } else {
+          error.innerHTML = '조건에 맞게 넣어 주세요.';
+        }
+      }
+    </script>
+  </body>
+</html>

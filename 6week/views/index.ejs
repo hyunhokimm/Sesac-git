@@ -32,11 +32,17 @@
       </div>
       <div><span>Email</span><input type="email" name="email" required /></div>
       <button type="submit">회원 가입</button>
+      <button type="button" onclick="multerPage()">multer 이동</button>
       <div id="error"></div>
     </form>
 
     <script>
       const error = document.getElementById('error');
+
+      function multerPage() {
+        console.log('multer');
+        location.href = '/profile';
+      }
 
       function oninputPWre(target) {
         const pw = document.getElementById('password').value;

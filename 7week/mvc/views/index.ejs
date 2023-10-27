@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form>
+      <div>
+        <span>ID</span>
+        <input type="text" id="id" />
+      </div>
+      <div>
+        <span>Password</span>
+        <input type="text" id="password" />
+      </div>
+      <div>
+        <span>Name</span>
+        <input type="text" id="name" />
+      </div>
+      <button type="button" onclick="onClick()">회원가입</button>
+      <div id="err"></div>
+    </form>
+    <script>
+      const onClick = () => {
+        const id = document.getElementById('id').value;
+        const password = document.getElementById('password').value;
+        const name = document.getElementById('name').value;
+
+        axios({
+          method: 'post',
+          url: '/user/create',
+          data: {
+            id,
+            password,
+            name,
+          },
+        }).then((result) => {
+          if (result.data === '신원 확인이 필요합니다.') {
+            document.getElementById('err').innerHTML = result.data;
+            return;
+          } else {
+            const myData = id;
+            localStorage.setItem('myData', myData);
+            location.href = '/home';
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

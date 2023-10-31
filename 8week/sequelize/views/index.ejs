@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form>
+      <div>
+        <span>ID</span>
+        <input type="text" id="id" />
+      </div>
+      <div>
+        <span>Password</span>
+        <input type="text" id="password" />
+      </div>
+      <div>
+        <span>Name</span>
+        <input type="text" id="name" />
+      </div>
+      <button type="button" onclick="onUser()">회원가입</button>
+      <div id="err"></div>
+    </form>
+    <br />
+    <h1>상품 등록</h1>
+    <form>
+      <span>상품</span><input type="text" id="productname" /> <br />
+      <span>개당 가격</span><input id="price" type="number" /><br />
+      <span>수량</span><input id="count" type="number" /><br />
+      <span>설명</span
+      ><textarea name="" id="explanation" cols="30" rows="10"></textarea><br />
+      <button type="button" onclick="onProduct()">상품 등록</button>
+    </form>
+    <script>
+      const onProduct = () => {
+        const productName = document.getElementById('productname').value;
+        const price = document.getElementById('price').value;
+        const count = document.getElementById('count').value;
+        const comment = document.getElementById('explanation').value;
+
+        console.log(productname, price, count, comment);
+        const productData = { productName, price, count, comment };
+
+        axios.post('/product/create', { data: productData }).then((result) => {
+          console.log(result);
+        });
+      };
+
+      const onUser = () => {
+        const userId = document.getElementById('id').value;
+        const password = document.getElementById('password').value;
+        const username = document.getElementById('name').value;
+        console.log(userId, password, username);
+        axios({
+          method: 'post',
+          url: '/user/create',
+          data: {
+            userId,
+            password,
+            username,
+          },
+        })
+          .then((result) => {
+            console.log(result);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form>
+      <div>
+        <span>ID</span>
+        <input type="text" id="id" />
+      </div>
+      <div>
+        <span>Password</span>
+        <input type="text" id="password" />
+      </div>
+      <div>
+        <span>Name</span>
+        <input type="text" id="name" />
+      </div>
+      <button type="button" onclick="onUser()">회원가입</button>
+      <div id="err"></div>
+    </form>
+    <tr>
+      <% for(let i = 0; i< result.length; i++) { %>
+      <td><%= result[i].userId %></td>
+      <td><%= result[i].userName %></td>
+      <% } %>
+    </tr>
+
+    <br />
+    <h1>상품 등록</h1>
+    <form>
+      <span>상품</span><input type="text" id="productname" /> <br />
+      <span>개당 가격</span><input id="price" type="number" /><br />
+      <span>수량</span><input id="count" type="number" /><br />
+      <span>설명</span
+      ><textarea name="" id="comment" cols="30" rows="10"></textarea><br />
+      <button type="button" onclick="onProduct()">상품 등록</button>
+    </form>
+    <script>
+      let user;
+      const onProduct = () => {
+        const productName = document.getElementById('productname').value;
+        const price = document.getElementById('price').value;
+        const count = document.getElementById('count').value;
+        const comment = document.getElementById('comment').value;
+
+        axios({
+          method: 'post',
+          url: '/product/create',
+          data: { productName, price, count, comment },
+        })
+          .then((result) => {
+            console.log(result);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+
+      const onUser = () => {
+        const userId = document.getElementById('id').value;
+        const password = document.getElementById('password').value;
+        const userName = document.getElementById('name').value;
+        axios({
+          method: 'post',
+          url: '/user/create',
+          data: {
+            userId,
+            password,
+            userName,
+          },
+        })
+          .then((result) => {
+            user = result.data.user;
+            console.log(user);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+    </script>
+  </body>
+</html>
